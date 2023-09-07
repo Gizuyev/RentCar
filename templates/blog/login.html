@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Articles{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <h2><b>Вход</b></h2>
+    <form action="{% url 'login' %}" method="post" class="login-form">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="username">Логин:</label>
+            <input type="text" id="username" name="username" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" class="form-control" required>
+        </div>
+        <button class="btn btn-primary" type="submit">Войти</button>
+    </form>
+</div>
+
+{% endblock content %}

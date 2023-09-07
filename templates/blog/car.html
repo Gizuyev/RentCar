@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+  {% block content %}
+  <section class="car_section layout_padding2-top layout_padding-bottom">
+    <div class="container">
+        <div class="heading_container text-center">
+            <h2>Лучший способ найти свои любимые автомобили</h2>
+            <p><!-- Давно установлено, что читатель будет отвлекаться при чтении --></p>
+        </div>
+        <div class="row">
+            {% for car in cars %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="{{ car.image.url }}" class="card-img-top" alt="{{ car.make.name }} {{ car.model }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ car.make.name }} {{ car.model }}</h5>
+                        <p class="card-text">
+                            Год: {{ car.year }}<br>
+                            Цвет: {{ car.color }}<br>
+                            Цена: {{ car.price }} ₸
+                        </p>
+                        <a href="#" class="btn btn-primary">Забронировать</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+
+
+  {% endblock %}
